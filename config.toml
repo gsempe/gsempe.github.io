@@ -54,10 +54,10 @@ preserveTaxonomyNames = true
   page = "/:slug/"
 
 [[menu.main]]
-  name = "Repo"
+  name = "Blog"
   weight = -70
-  identifier = "repository"
-  url = "https://github.com/MunifTanjim/minimo"
+  identifier = "fillmem"
+  url = "https://fillmem.com"
 
 # Language Configuration
 defaultContentLanguage = "en"
