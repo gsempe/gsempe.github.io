@@ -1,0 +1,70 @@
+baseURL = "https://gsempe.github.io"
+title = "Fill the memory"
+copyright = ""
+
+theme = "minimo"
+
+disqusShortname = ""
+googleAnalytics = ""
+Paginate = 5
+
+preserveTaxonomyNames = true
+
+[params]
+  description = "Move forward"
+  dateFormat = "2006, Jan 2"
+  copyrightOwner = "Guillaume Sempe"
+  copyrightStartYear = "2017"
+  favicon = "favicon.ico"
+  hideEntryNavigation = false
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"]
+  hideSocialMenu = false
+  showReadTime = true
+
+[params.seo]
+  # Title Separator: - – — · • * ⋆ | ~ « » < >
+  titleSeparator = "•"
+
+[params.opengraph]
+  [params.opengraph.facebook]
+    admins = ""
+    appid = ""
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[social]
+  facebook = ""
+
+[author]
+  name = "gsempe"
+
+[author.social]
+  codepen = ""
+  email = "guillaume.sempe@gmail.com"
+  facebook = "gsempe"
+  github = "gsempe"
+  instagram = "gsempe"
+  twitter = "tx"
+  linkedin = "gsempe"
+
+[permalinks]
+  page = "/:slug/"
+
+[[menu.main]]
+  name = "Repo"
+  weight = -70
+  identifier = "repository"
+  url = "https://github.com/MunifTanjim/minimo"
+
+# Language Configuration
+defaultContentLanguage = "en"
+
+[languages]
+  # edit this block for your own language
+  [languages.en]
+    lang = "en"
+    languageName = "English"
+    weight = 1
