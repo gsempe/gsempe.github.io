@@ -11,7 +11,7 @@ Paginate = 5
 preserveTaxonomyNames = true
 
 [params]
-  description = "Move forward"
+  description = "To move forward, to avoid losing time on the same things"
   dateFormat = "2006, Jan 2"
   copyrightOwner = "Guillaume Sempe"
   copyrightStartYear = "2017"
