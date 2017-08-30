@@ -10,6 +10,11 @@ Paginate = 5
 
 preserveTaxonomyNames = true
 
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = false
+pygmentsStyle = "emacs"
+pygmentsUseClasses = false
+
 [params]
   description = "To move forward, to avoid losing time on the same things"
   dateFormat = "2006, Jan 2"
