@@ -23,7 +23,7 @@ pygmentsUseClasses = false
   favicon = "favicon.ico"
   hideEntryNavigation = false
   customCSS = ["css/custom.css"]
-  customJS = ["js/custom.js"]
+  customJS = []
   hideSocialMenu = false
   showReadTime = true
 
