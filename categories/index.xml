@@ -9,5 +9,14 @@
 	<atom:link href="https://gsempe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Others</title>
+      <link>https://gsempe.github.io/categories/others/</link>
+      <pubDate>Thu, 31 Aug 2017 06:09:06 +0100</pubDate>
+      
+      <guid>https://gsempe.github.io/categories/others/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
