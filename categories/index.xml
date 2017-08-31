@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Fill the memory</title>
-    <link>https://gsempe.github.io/categories/</link>
+    <link>https://fillmem.com/categories/</link>
     <description>Recent content in Categories on Fill the memory</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="https://gsempe.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fillmem.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Others</title>
-      <link>https://gsempe.github.io/categories/others/</link>
+      <link>https://fillmem.com/categories/others/</link>
       <pubDate>Thu, 31 Aug 2017 06:09:06 +0100</pubDate>
       
-      <guid>https://gsempe.github.io/categories/others/</guid>
+      <guid>https://fillmem.com/categories/others/</guid>
       <description></description>
     </item>
     
