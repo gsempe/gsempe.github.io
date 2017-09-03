@@ -12,14 +12,24 @@ draft: true
 Hello
 Default Pygments style are. A link to the page [showcase](https://help.farbox.com/pygments.html)
 
-{{< highlight python "hl_lines=2 3" >}}
+<pre data-line="1" class="language-batch"><code class="language-batch">mkdir test
+cd dir
+curl -L -s -o hugo_0.26.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_macOS-64bit.tar.gz
+</pre></code>
+
+~~~batch
+mkdir test
+cd dir
+curl -L -s -o hugo_0.26.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_macOS-64bit.tar.gz
+~~~
+~~~python
 >>> from pygments.styles import get_all_styles
 >>> styles = list(get_all_styles())
 >>> print styles
 ['manni', 'igor', 'lovelace', 'xcode', 'vim', 'autumn', 'abap', 'vs', 'rrt', 'native', 'perldoc', 'borland', 'arduino', 'tango', 'emacs', 'friendly', 'monokai', 'paraiso-dark', 'colorful', 'murphy', 'bw', 'pastie', 'rainbow_dash', 'algol_nu', 'paraiso-light', 'trac', 'default', 'algol', 'fruity']
-{{< /highlight >}}
+~~~
 
-{{< highlight html "hl_lines=2 3" >}}
+~~~html
 <section id="main">
   <div>
     <h1 id="title">{{ .Title }}</h1>
@@ -28,10 +38,9 @@ Default Pygments style are. A link to the page [showcase](https://help.farbox.co
     {{ end }}
   </div>
 </section>
-{{< /highlight >}}
+~~~
 
-{{< highlight go >}}
-
+~~~go
 package main
 
 import "fmt"
@@ -40,9 +49,9 @@ func main() {
 	fmt.Println("Hello, 世界")
 	// Remaining things here
 }
-{{< /highlight >}}
+~~~
 
-{{< highlight erlang "hl_lines=8">}}
+~~~erlang
 -module(talk).
 -export([worker/0]).
 
@@ -59,7 +68,7 @@ work(N) ->
             timer:sleep(500),
             work(N+1)
     end.
-{{< /highlight >}}
+~~~
 
 ``` html
 <section id="main">
