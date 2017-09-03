@@ -10,7 +10,7 @@ Paginate = 5
 
 preserveTaxonomyNames = true
 
-pygmentsCodeFences = true
+pygmentsCodeFences = false
 pygmentsCodeFencesGuessSyntax = false
 pygmentsStyle = "emacs"
 pygmentsUseClasses = false
@@ -22,8 +22,8 @@ pygmentsUseClasses = false
   copyrightStartYear = "2017"
   favicon = "favicon.ico"
   hideEntryNavigation = false
-  customCSS = ["css/custom.css"]
-  customJS = []
+  customCSS = ["css/prism.css", "css/custom.css"]
+  customJS = ["js/prism.js", "js/custom.js"]
   hideSocialMenu = false
   showReadTime = true
 
