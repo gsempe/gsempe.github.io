@@ -5,11 +5,11 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do this, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
-Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article have to be precisely on how to do it.'>
+Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.'>
 
 <meta property='og:title' content='Build a self-hosted, fast, secured and free static site in less than 3 hours • gsempe'>
 <meta property='og:description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do this, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
-Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article have to be precisely on how to do it.'>
+Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.'>
 <meta property='og:url' content='https://fillmem.com/post/self-hosted-fast-secured-and-free-static-site/'>
 <meta property='og:site_name' content='Fill the memory'>
 <meta property='og:type' content='article'><meta property='article:author' content='https://facebook.com/gsempe'><meta property='article:section' content='Post'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-08-31T06:09:06&#43;01:00'/><meta property='article:modified_time' content='2017-08-31T06:09:06&#43;01:00'/>
@@ -52,7 +52,7 @@ Everything starts with the idea to build a website to host my work. On the road,
           
           <p class='site-title title'>Fill the memory</p>
           
-          <p class='site-description'>To move forward, to avoid losing time on the same things</p>
+          <p class='site-description'>To move forward and to avoid losing time on the same things</p>
         </div>
       </div>
     </header>
@@ -102,7 +102,7 @@ Everything starts with the idea to build a website to host my work. On the road,
   
 </svg>
 
-    2 mins read
+    5 mins read
   </span>
   
 </div>
@@ -115,7 +115,7 @@ Everything starts with the idea to build a website to host my work. On the road,
 
 <p><sup><strong><em>Note:</em></strong> <em>Unless you&rsquo;re a developer or you want to learn how to do this, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on <a href="https://medium.com">Medium</a></em></sup></p>
 
-<p>Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article have to be precisely on how to do it. And here it is.<br />
+<p>Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.<br />
 To be effective I picked <a href="https://gohugo.io/">Hugo</a> that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.<br />
 Everything as to stay free, so the generated pages are hosted in a <a href="https://pages.github.com/">Github repository</a> side by side with the website code source. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.<br />
 For my own needs I have added two complementary goals at the end of the article. They are not interesting for everyone, feel free to drop them:</p>
@@ -137,7 +137,7 @@ A website compliant to best practices.<br />
 A minimalist design.<br />
 A beautiful code syntax highlighting of a wide range of languages.</p>
 
-<h3 id="setup-the-development-environment">Setup the development environment</h3>
+<h2 id="setup-the-development-environment">Setup the development environment</h2>
 
 <p>Create the directories structure</p>
 
@@ -147,11 +147,12 @@ mkdir bin
 mkdir site
 </code></pre>
 
-<p>Check what is the last <a href="https://github.com/gohugoio/hugo/releases">Hugo release</a> and download the right version for your environment. My environment is a 64 bits MacOS.</p>
+<h3 id="install-hugo">Install Hugo</h3>
 
-<pre><code class="language-batch">cd bin
-curl -L -s -o hugo_0.26.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_macOS-64bit.tar.gz
-tar xvzf hugo_0.26.tar.gz
+<p>Check what&rsquo;s the last <a href="https://github.com/gohugoio/hugo/releases">Hugo release</a> and download the right version for your environment. My environment is a 64 bits MacOS.</p>
+
+<pre><code class="language-batch">curl -L -s -o bin/hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_macOS-64bit.tar.gz
+tar xvzf bin/hugo.tar.gz -C bin/
 </code></pre>
 
 <p>Verify that the Hugo binary is working properly by making it print its version</p>
@@ -159,6 +160,116 @@ tar xvzf hugo_0.26.tar.gz
 <pre><code class="language-batch">./hugo version
 Hugo Static Site Generator v0.26 darwin/amd64 BuildDate: 2017-08-07T08:09:45+01:00
 </code></pre>
+
+<h3 id="create-the-github-repository">Create the Github repository</h3>
+
+<p>I chose to do a <a href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages">user/organization page</a> as I&rsquo;m building a personal website. If you stick to this choice you can follow the next steps. Otherwise you&rsquo;re on your own!</p>
+
+<p>To get user page features activated the repository has to be named in a specific way. It&rsquo;s easier to understand with the example of this site.<br />
+My account username is <strong>gsempe</strong> at the address <a href="https://github.com/gsempe">https://github.com/<strong>gsempe</strong></a>.<br />
+This site is hosted in the repository named <strong>gsempe</strong>.github.io at the address <a href="https://github.com/gsempe/gsempe.github.io">https://github.com/<strong>gsempe</strong>/<strong>gsempe</strong>.github.io</a></p>
+
+<p>You have to follow this scheme. If your Github username is <code>jcarmack</code>, creates the repository <code>jcarmack.github.io</code>. Make it public, do not add a <code>README</code> file, neither a <code>.gitignore</code> or a <code>license</code> file. The <code>master</code> branch is the branch where generated pages are hosted, you don&rsquo;t want any non mandatory files there.</p>
+
+<h3 id="initiate-repository-branches">Initiate repository branches</h3>
+
+<p>Push the first commit on the <code>master</code> branch to create it. Generated pages will be pushed on this branch.</p>
+
+<pre><code class="language-batch">cd site
+git init
+git remote add origin git@github.com:jcarmack/jcarmack.github.io.git
+git commit --allow-empty -m &quot;Start the public branch&quot;
+git push -u origin master
+</code></pre>
+
+<p>Create the <code>source</code> branch. Website code source will be pushed on this branch.<br />
+The source branch has to have a <code>.gitignore</code> file to avoid to commit generated or temporary files. I use the online tool <a href="https://www.gitignore.io/">gitignore.io</a> to generate <code>.gitignore</code> files. It is very convenient to add the usual files to ignore regarding OSX, vim and Hugo in one curl command.</p>
+
+<pre><code class="language-batch">git checkout --orphan source
+curl -L -s -o .gitignore https://www.gitignore.io/api/osx%2Cvim%2Chugo
+git add .gitignore
+git commit -m &quot;Start to fill the memory&quot;
+git push origin source
+</code></pre>
+
+<p>Verify that the .gitignore file generated at the previous step contains the line <code>/public/</code>. If the line does not exist add it and commit this change.</p>
+
+<pre><code class="language-batch">cat .gitignore | grep public
+/public/
+</code></pre>
+
+<p>Use the git worktree feature to checkout the master branch to the ignored public sub-folder.<br />
+Why? By default, Hugo generates the site in the public folder. To have the master branch maps to the public folder makes possible to easily chain site generation and publication steps without moving around files.</p>
+
+<pre><code class="language-batch">rm -rf public
+git worktree add -B master public origin/master
+</code></pre>
+
+<h2 id="configure-and-generate-the-site">Configure and generate the site</h2>
+
+<p>The environment setup is done and it&rsquo;s finally the moment to make the actual site.</p>
+
+<p>Create a new empty site tree</p>
+
+<pre><code class="language-batch">git checkout source
+../bin/hugo new site . --force
+git add config.toml archetypes/default.md
+git commit -m &quot;Add fresh empty site&quot;
+git push origin source
+</code></pre>
+
+<p>Add the Hugo theme. This site uses <a href="https://themes.gohugo.io/theme/minimo/">minimo theme</a><br />
+Why minimo theme? It&rsquo;s clean/minimalist. It supports categories/tags, renders correctly on desktop and mobile phones, and has built-in hooks to add custom Javascript and CSS.</p>
+
+<pre><code class="language-batch">git submodule add https://github.com/MunifTanjim/minimo themes/minimo
+git submodule init
+git submodule update
+cp themes/minimo/exampleSite/config.toml .
+</code></pre>
+
+<p>Modify the <code>config.toml</code> configuration file to fit your site.</p>
+
+<pre><code class="language-yaml">baseURL = &quot;https://jcarmack.github.io&quot;
+title = &quot;J. Carmack&quot;
+</code></pre>
+
+<pre><code class="language-yaml">[params]
+  description = &quot;Carmack static site&quot;
+</code></pre>
+
+<pre><code class="language-yaml">[author.social]
+  codepen = &quot;&quot;
+  email = &quot;&quot;
+  facebook = &quot;&quot;
+  github = &quot;&quot;
+  instagram = &quot;&quot;
+  twitter = &quot;ID_AA_Carmack&quot;
+  linkedin = &quot;&quot;
+
+</code></pre>
+
+<pre><code class="language-yaml">[[menu.main]]
+  name = &quot;Blog&quot;
+  weight = -70
+  identifier = &quot;jcarmack&quot;
+  url = &quot;https://jcarmack.github.io&quot;
+</code></pre>
+
+<p>Commit the changes and test the site</p>
+
+<pre><code class="language-batch">git add config.toml .gitmodules themes/minimo 
+git commit -m &quot;Add minimo theme&quot;
+git push origin source
+../bin/hugo server -D
+</code></pre>
+
+<p>If you open your web browser and you visit the address <code>http://localhost:1313/</code> the site should load even if there is for the moment no content.</p>
+
+<h2 id="publish-the-site">Publish the site</h2>
+
+<pre data-jsonp="https://api.github.com/repos/gsempe/gsempe.github.io/contents/publish_to_master.sh?ref=source" class="language-batch">
+
+</pre>
 
 </div>
 
