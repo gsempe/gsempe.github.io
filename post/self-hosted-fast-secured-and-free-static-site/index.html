@@ -4,11 +4,11 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do this, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
+<meta name='description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
 Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.'>
 
 <meta property='og:title' content='Build a self-hosted, fast, secured and free static site in less than 3 hours • gsempe'>
-<meta property='og:description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do this, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
+<meta property='og:description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
 Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.'>
 <meta property='og:url' content='https://fillmem.com/post/self-hosted-fast-secured-and-free-static-site/'>
 <meta property='og:site_name' content='Fill the memory'>
@@ -27,6 +27,13 @@ Everything starts with the idea to build a website to host my work. On the road,
 
   <link rel='stylesheet' href='/css/custom.css'>
 
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-105858064-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -102,7 +109,7 @@ Everything starts with the idea to build a website to host my work. On the road,
   
 </svg>
 
-    5 mins read
+    6 mins read
   </span>
   
 </div>
@@ -113,7 +120,7 @@ Everything starts with the idea to build a website to host my work. On the road,
     <div class='entry-content'>
   
 
-<p><sup><strong><em>Note:</em></strong> <em>Unless you&rsquo;re a developer or you want to learn how to do this, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on <a href="https://medium.com">Medium</a></em></sup></p>
+<p><sup><strong><em>Note:</em></strong> <em>Unless you&rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on <a href="https://medium.com">Medium</a></em></sup></p>
 
 <p>Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.<br />
 To be effective I picked <a href="https://gohugo.io/">Hugo</a> that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.<br />
@@ -155,7 +162,7 @@ mkdir site
 tar xvzf bin/hugo.tar.gz -C bin/
 </code></pre>
 
-<p>Verify that the Hugo binary is working properly by making it print its version</p>
+<p>Verify that the Hugo generator is working properly by making it print its version</p>
 
 <pre><code class="language-batch">./hugo version
 Hugo Static Site Generator v0.26 darwin/amd64 BuildDate: 2017-08-07T08:09:45+01:00
@@ -163,13 +170,15 @@ Hugo Static Site Generator v0.26 darwin/amd64 BuildDate: 2017-08-07T08:09:45+01:
 
 <h3 id="create-the-github-repository">Create the Github repository</h3>
 
-<p>I chose to do a <a href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages">user/organization page</a> as I&rsquo;m building a personal website. If you stick to this choice you can follow the next steps. Otherwise you&rsquo;re on your own!</p>
+<p>I chose to do a <a href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages">user/organization page</a> as I&rsquo;m building my website. If you stick to this choice you can follow the next steps. Otherwise you&rsquo;re on your own!</p>
 
 <p>To get user page features activated the repository has to be named in a specific way. It&rsquo;s easier to understand with the example of this site.<br />
 My account username is <strong>gsempe</strong> at the address <a href="https://github.com/gsempe">https://github.com/<strong>gsempe</strong></a>.<br />
 This site is hosted in the repository named <strong>gsempe</strong>.github.io at the address <a href="https://github.com/gsempe/gsempe.github.io">https://github.com/<strong>gsempe</strong>/<strong>gsempe</strong>.github.io</a></p>
 
-<p>You have to follow this scheme. If your Github username is <code>jcarmack</code>, creates the repository <code>jcarmack.github.io</code>. Make it public, do not add a <code>README</code> file, neither a <code>.gitignore</code> or a <code>license</code> file. The <code>master</code> branch is the branch where generated pages are hosted, you don&rsquo;t want any non mandatory files there.</p>
+<p>You have to follow this scheme.</p>
+
+<p>If your Github username is <code>jcarmack</code>, creates the repository <code>jcarmack.github.io</code>. Make it public, do not add a <code>README</code> file, neither a <code>.gitignore</code> or a <code>license</code> file. The <code>master</code> branch is the branch where generated pages are hosted, you don&rsquo;t want any non mandatory files there.</p>
 
 <h3 id="initiate-repository-branches">Initiate repository branches</h3>
 
@@ -183,7 +192,7 @@ git push -u origin master
 </code></pre>
 
 <p>Create the <code>source</code> branch. Website code source will be pushed on this branch.<br />
-The source branch has to have a <code>.gitignore</code> file to avoid to commit generated or temporary files. I use the online tool <a href="https://www.gitignore.io/">gitignore.io</a> to generate <code>.gitignore</code> files. It is very convenient to add the usual files to ignore regarding OSX, vim and Hugo in one curl command.</p>
+The source branch has to have a <code>.gitignore</code> file to avoid to commit generated or temporary files. I use the online tool <a href="https://www.gitignore.io/">gitignore.io</a> to generate <code>.gitignore</code> files. It is very convenient to get the usual files to ignore regarding OSX, vim and Hugo in one curl command.</p>
 
 <pre><code class="language-batch">git checkout --orphan source
 curl -L -s -o .gitignore https://www.gitignore.io/api/osx%2Cvim%2Chugo
@@ -255,21 +264,85 @@ title = &quot;J. Carmack&quot;
   url = &quot;https://jcarmack.github.io&quot;
 </code></pre>
 
-<p>Commit the changes and test the site</p>
+<p>Commit the changes</p>
 
 <pre><code class="language-batch">git add config.toml .gitmodules themes/minimo 
 git commit -m &quot;Add minimo theme&quot;
 git push origin source
-../bin/hugo server -D
 </code></pre>
 
-<p>If you open your web browser and you visit the address <code>http://localhost:1313/</code> the site should load even if there is for the moment no content.</p>
+<p>Test the site</p>
 
-<h2 id="publish-the-site">Publish the site</h2>
+<pre><code class="language-batch">../bin/hugo server -D
+</code></pre>
+
+<p>If you open your web browser and you visit the address <code>http://localhost:1313/</code> the site should load even if there is no content for the moment.</p>
+
+<h2 id="add-the-first-post">Add the first post</h2>
+
+<p>Replace the Hugo default template by the the theme default template and generate the the first post skeleton.</p>
+
+<pre><code class="language-batch">cp themes/minimo/archetypes/default.md archetypes/default.md
+../bin/hugo new post/first-post.md
+</code></pre>
+
+<p>Edit the <code>content/post/first-post.md</code> file. There is only the <a href="https://gohugo.io/content-management/front-matter/">front matter</a> right after the generation. That is the way Hugo takes informations to generate pages. Improve it in the same way than this example.</p>
+
+<pre><code class="language-yaml">---
+categories:
+  - Others
+tags:
+  - hugo
+  - small talk
+title: &quot;Welcome to my new website&quot;
+slug: &quot;Welcome message&quot;
+date: 2017-09-05T05:58:27+01:00
+draft: true
+---
+</code></pre>
+
+<p>Below the last line of the front matter, the one with the 3 dashes <code>---</code> this is where you add the content of the post. The format uses is Markdown. Copy/paste the following block to see it in action&hellip; and give an appreciated credit!</p>
+
+<pre><code class="language-markdown">## Welcome
+
+I'm very __happy__ to introduce my new website!  
+It's a static website that I have done in less than 3 hours with this [Hugo tutorial](https://fillmem.com/post/self-hosted-fast-secured-and-free-static-site/)
+
+</code></pre>
+
+<p>Test the site</p>
+
+<pre><code class="language-batch">../bin/hugo server -D
+</code></pre>
+
+<h2 id="publish-the-site-with-the-new-post">Publish the site with the new post</h2>
+
+<p>To let Hugo generator knows that the post done in the previous section is ready to be published the <code>draft</code> value in the front matter has to be set to <code>false</code></p>
+
+<pre><code class="language-yaml">draft: false
+</code></pre>
+
+<p>To be able to publish the site in one command add the <a href="https://github.com/gsempe/gsempe.github.io/blob/source/publish_to_master.sh">publish_to_master.sh</a> script at the root of your repository. This is the one that I use for this <a href="https://github.com/gsempe/gsempe.github.io/tree/source">site</a>.</p>
 
 <pre data-jsonp="https://api.github.com/repos/gsempe/gsempe.github.io/contents/publish_to_master.sh?ref=source" class="language-batch">
 
 </pre>
+
+<p>Commit the changes just before the last step</p>
+
+<pre><code class="language-batch">chmod u+x publish_to_master.sh
+git add * 
+git commit -m &quot;Add the first post&quot;
+git push origin source
+</code></pre>
+
+<p>Run the script to publish your site</p>
+
+<pre><code class="language-batch">./publish_to_master.sh
+</code></pre>
+
+<p>Congratulations your first post is online!<br />
+Go visit it at your Github address. It&rsquo;s something like  <a href="https://jcarmack.github.io">https://jcarmack.github.io</a> but with your Github username.</p>
 
 </div>
 
