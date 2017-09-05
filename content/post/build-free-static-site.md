@@ -98,7 +98,7 @@ cat .gitignore | grep public
 ```
 
 Use the git worktree feature to checkout the master branch to the ignored public sub-folder.  
-Why? By default, Hugo generates the site in the public folder. To have the master branch maps to the public folder makes possible to easily chain site generation and publication steps without moving around files.
+Why? By default, Hugo generates the site in the public folder. To have the master branch mapped to the public folder makes possible to easily chain site generation and publication steps without moving around files.
 ```batch
 rm -rf public
 git worktree add -B master public origin/master
@@ -192,7 +192,7 @@ draft: true
 ---
 ```
 
-Below the last line of the front matter, the one with the 3 dashes `---` this is where you add the content of the post. The format uses is Markdown. Copy/paste the following block to see it in action... and give an appreciated credit! 
+Below the last line of the front matter, the one with the 3 dashes `---` this is where you add the content of the post. The format used is Markdown. Copy/paste the following block to see it in action... and give an appreciated credit! 
 
 ```markdown
 ## Welcome
