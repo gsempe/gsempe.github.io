@@ -25,8 +25,6 @@ Everything starts with the idea to build a website to host my work. On the road,
 
   <link rel='stylesheet' href='/css/prism.css'>
 
-  <link rel='stylesheet' href='/css/custom.css'>
-
 
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -109,7 +107,7 @@ ga('send', 'pageview');
   
 </svg>
 
-    6 mins read
+    7 mins read
   </span>
   
 </div>
@@ -125,7 +123,7 @@ ga('send', 'pageview');
 <p>Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.<br />
 To be effective I picked <a href="https://gohugo.io/">Hugo</a> that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.<br />
 Everything as to stay free, so the generated pages are hosted in a <a href="https://pages.github.com/">Github repository</a> side by side with the website code source. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.<br />
-For my own needs I have added two complementary goals at the end of the article. They are not interesting for everyone, feel free to drop them:</p>
+For my own needs I have added two extra goals at the end of the article. They are not interesting for everyone, feel free to drop them:</p>
 
 <ul>
 <li>A beautiful code syntax highlighting of a wide range of languages. (free)<br /></li>
@@ -343,6 +341,54 @@ git push origin source
 
 <p>Congratulations your first post is online!<br />
 Go visit it at your Github address. It&rsquo;s something like  <a href="https://jcarmack.github.io">https://jcarmack.github.io</a> but with your Github username.</p>
+
+<h2 id="extra-goal-1-the-beautiful-code-syntax-highlighting">Extra goal 1: the beautiful code syntax highlighting</h2>
+
+<p>Syntax code highlighting is a must have feature for a developer site and so several solutions are available. This site uses <a href="http://prismjs.com/">Prism</a> instead of the common choice <a href="https://highlightjs.org/">highlight.js</a>. Prism is better documented and more modular.</p>
+
+<p>On the <a href="http://prismjs.com/download.html">Prism download page</a> check the languages that you use all the time. Let the one that you use from time to time not selected. The missing ones will be downloaded when needed. For instance on Fill The Memory the languages checked are:</p>
+
+<ul>
+<li>markup</li>
+<li>css</li>
+<li>clike</li>
+<li>javascript</li>
+<li>batch</li>
+<li>ruby</li>
+<li>erlang</li>
+<li>go</li>
+<li>makefile</li>
+<li>yaml</li>
+</ul>
+
+<p>The plugins selected are:</p>
+
+<ul>
+<li>line-highlight</li>
+<li>file-highlight</li>
+<li>jsonp-highlight</li>
+<li>autoloader</li>
+</ul>
+
+<p>Do your own selection of languages and plugins but keep <code>autoloader</code> plugin selected to be able to download dynamically a language not in your pre-selection.<br />
+Download JS and CSS files</p>
+
+<p><img src="/img/build-free-static-site/prism-download.jpg" alt="Prism download page" /></p>
+
+<p>Move Prism files to the static folder</p>
+
+<pre><code class="language-batch">mkdir static/js
+mkdir static/css
+mv ~/Downloads/prism.js static/js
+mv ~/Downloads/prism.css static/css
+</code></pre>
+
+<p>Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let&rsquo;s make the site load these files.</p>
+
+<pre><code class="language-yaml">[params]
+  customCSS = [&quot;css/prism.css&quot;]
+  customJS = [&quot;js/prism.js&quot;, &quot;js/custom.js&quot;]
+</code></pre>
 
 </div>
 
