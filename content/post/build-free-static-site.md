@@ -17,7 +17,7 @@ draft: false
 Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.  
 To be effective I picked [Hugo](https://gohugo.io/) that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.   
 Everything as to stay free, so the generated pages are hosted in a [Github repository](https://pages.github.com/) side by side with the website code source. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.  
-For my own needs I have added two complementary goals at the end of the article. They are not interesting for everyone, feel free to drop them:
+For my own needs I have added two extra goals at the end of the article. They are not interesting for everyone, feel free to drop them:
 
 - A beautiful code syntax highlighting of a wide range of languages. (free)  
 - A custom domain name (few bucks per year)
@@ -238,3 +238,50 @@ Run the script to publish your site
 
 Congratulations your first post is online!  
 Go visit it at your Github address. It's something like  [https://jcarmack.github.io](https://jcarmack.github.io) but with your Github username.
+
+## Extra goal 1: the beautiful code syntax highlighting
+
+Syntax code highlighting is a must have feature for a developer site and so several solutions are available. This site uses [Prism](http://prismjs.com/) instead of the common choice [highlight.js](https://highlightjs.org/). Prism is better documented and more modular.
+
+On the [Prism download page](http://prismjs.com/download.html) check the languages that you use all the time. Let the one that you use from time to time not selected. The missing ones will be downloaded when needed. For instance on Fill The Memory the languages checked are:
+
+- markup
+- css
+- clike
+- javascript
+- batch
+- ruby
+- erlang
+- go
+- makefile
+- yaml
+
+The plugins selected are:
+
+- line-highlight
+- file-highlight
+- jsonp-highlight
+- autoloader
+
+
+Do your own selection of languages and plugins but keep `autoloader` plugin selected to be able to download dynamically a language not in your pre-selection.  
+Download JS and CSS files
+
+![Prism download page](/img/build-free-static-site/prism-download.jpg)
+
+Move Prism files to the static folder
+
+```batch
+mkdir static/js
+mkdir static/css
+mv ~/Downloads/prism.js static/js
+mv ~/Downloads/prism.css static/css
+```
+
+Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let's make the site load these files.  
+
+```yaml
+[params]
+  customCSS = ["css/prism.css"]
+  customJS = ["js/prism.js", "js/custom.js"]
+```
