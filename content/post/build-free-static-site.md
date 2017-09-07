@@ -16,7 +16,7 @@ draft: false
 
 Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.  
 To be effective I picked [Hugo](https://gohugo.io/) that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.   
-Everything as to stay free, so the generated pages are hosted in a [Github repository](https://pages.github.com/) side by side with the website code source. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.  
+Everything as to stay free, so the generated pages are hosted in a [Github repository](https://pages.github.com/) side by side with the website source code. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.  
 For my own needs I have added two extra goals at the end of the article. They are not interesting for everyone, feel free to drop them:
 
 - A beautiful code syntax highlighting of a wide range of languages. (free)  
@@ -81,7 +81,7 @@ git commit --allow-empty -m "Start the public branch"
 git push -u origin master
 ```
 
-Create the `source` branch. Website code source will be pushed on this branch.  
+Create the `source` branch. Website source code will be pushed on this branch.  
 The source branch has to have a `.gitignore` file to avoid to commit generated or temporary files. I use the online tool [gitignore.io](https://www.gitignore.io/) to generate `.gitignore` files. It is very convenient to get the usual files to ignore regarding OSX, vim and Hugo in one curl command.
 
 ```batch
@@ -170,7 +170,7 @@ If you open your web browser and you visit the address `http://localhost:1313/` 
 
 ## Add the first post
 
-Replace the Hugo default template by the the theme default template and generate the the first post skeleton.
+Replace the Hugo default template by the theme default template and generate the first post skeleton.
 
 ```batch
 cp themes/minimo/archetypes/default.md archetypes/default.md
@@ -192,7 +192,7 @@ draft: true
 ---
 ```
 
-Below the last line of the front matter, the one with the 3 dashes `---` this is where you add the content of the post. The format used is Markdown. Copy/paste the following block to see it in action... and give an appreciated credit! 
+Below the last line of the front matter, the one with the 3 dashes `---` this is where you add the content of the post. The format used is Markdown. Copy/paste the following block to see it in action... And give an appreciated credit! 
 
 ```markdown
 ## Welcome
