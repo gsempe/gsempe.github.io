@@ -107,7 +107,7 @@ ga('send', 'pageview');
   
 </svg>
 
-    7 mins read
+    8 mins read
   </span>
   
 </div>
@@ -122,12 +122,12 @@ ga('send', 'pageview');
 
 <p>Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.<br />
 To be effective I picked <a href="https://gohugo.io/">Hugo</a> that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.<br />
-Everything as to stay free, so the generated pages are hosted in a <a href="https://pages.github.com/">Github repository</a> side by side with the website code source. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.<br />
+Everything as to stay free, so the generated pages are hosted in a <a href="https://pages.github.com/">Github repository</a> side by side with the website source code. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.<br />
 For my own needs I have added two extra goals at the end of the article. They are not interesting for everyone, feel free to drop them:</p>
 
 <ul>
 <li>A beautiful code syntax highlighting of a wide range of languages. (free)<br /></li>
-<li>A custom domain name (few bucks per year)</li>
+<li>A secured custom domain name (few bucks per year)</li>
 </ul>
 
 <p>And yes, it should be done in less than 3 hours!</p>
@@ -189,7 +189,7 @@ git commit --allow-empty -m &quot;Start the public branch&quot;
 git push -u origin master
 </code></pre>
 
-<p>Create the <code>source</code> branch. Website code source will be pushed on this branch.<br />
+<p>Create the <code>source</code> branch. Website source code will be pushed on this branch.<br />
 The source branch has to have a <code>.gitignore</code> file to avoid to commit generated or temporary files. I use the online tool <a href="https://www.gitignore.io/">gitignore.io</a> to generate <code>.gitignore</code> files. It is very convenient to get the usual files to ignore regarding OSX, vim and Hugo in one curl command.</p>
 
 <pre><code class="language-batch">git checkout --orphan source
@@ -278,7 +278,7 @@ git push origin source
 
 <h2 id="add-the-first-post">Add the first post</h2>
 
-<p>Replace the Hugo default template by the the theme default template and generate the the first post skeleton.</p>
+<p>Replace the Hugo default template by the theme default template and generate the first post skeleton.</p>
 
 <pre><code class="language-batch">cp themes/minimo/archetypes/default.md archetypes/default.md
 ../bin/hugo new post/first-post.md
@@ -299,7 +299,7 @@ draft: true
 ---
 </code></pre>
 
-<p>Below the last line of the front matter, the one with the 3 dashes <code>---</code> this is where you add the content of the post. The format used is Markdown. Copy/paste the following block to see it in action&hellip; and give an appreciated credit!</p>
+<p>Below the last line of the front matter, the one with the 3 dashes <code>---</code> this is where you add the content of the post. The format used is Markdown. Copy/paste the following block to see it in action&hellip; And give an appreciated credit!</p>
 
 <pre><code class="language-markdown">## Welcome
 
@@ -342,6 +342,9 @@ git push origin source
 <p>Congratulations your first post is online!<br />
 Go visit it at your Github address. It&rsquo;s something like  <a href="https://jcarmack.github.io">https://jcarmack.github.io</a> but with your Github username.</p>
 
+<p>From there, start the extra goals tutorial. They are only nice to have additions and your site is perfectly usable without them.
+If you think you need them, let&rsquo;s continue&hellip;</p>
+
 <h2 id="extra-goal-1-the-beautiful-code-syntax-highlighting">Extra goal 1: the beautiful code syntax highlighting</h2>
 
 <p>Syntax code highlighting is a must have feature for a developer site and so several solutions are available. This site uses <a href="http://prismjs.com/">Prism</a> instead of the common choice <a href="https://highlightjs.org/">highlight.js</a>. Prism is better documented and more modular.</p>
@@ -383,12 +386,80 @@ mv ~/Downloads/prism.js static/js
 mv ~/Downloads/prism.css static/css
 </code></pre>
 
-<p>Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let&rsquo;s make the site load these files.</p>
+<p>Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let&rsquo;s make the site load these files. Modify <code>config.toml</code> configuration file.</p>
+
+<pre><code class="language-yaml">[params]
+  customCSS = [&quot;css/prism.css&quot;]
+  customJS = [&quot;js/prism.js&quot;]
+</code></pre>
+
+<p>Copy the code snippet below, opening and closing <code>pre</code> HTML tags included, in a post. The CSS <code>font-family</code> declaration should be highlighted in the page generated.</p>
+
+<pre><code class="language-html">&lt;pre&gt;
+  &lt;code class=&quot;language-css&quot;&gt;
+  body {
+    font-family: &quot;Noto Sans&quot;, sans-serif;
+  }
+  &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+
+<p>To highlight the languages not in the pre-selection the <a href="http://prismjs.com/plugins/autoloader/">Prism autoloader</a> plugin has to be setup.<br />
+Download from the plugin page all language grammars.
+Create a <code>components</code> folder and move all grammars in this folder.</p>
+
+<pre><code class="language-batch">mkdir static/components
+unzip ~/Downloads/prism-components.zip -d static/components/
+</code></pre>
+
+<p>Create a new Javascript file <code>custom.js</code>.</p>
+
+<pre><code class="language-batch">touch static/js/custom.js.
+</code></pre>
+
+<p>Add in <code>custom.js</code> file an instruction to make the autoloader finds grammars.</p>
+
+<pre><code class="language-javascript">Prism.plugins.autoloader.languages_path = &quot;/components/&quot;;
+</code></pre>
+
+<p>Update <code>config.toml</code> configuration file.</p>
 
 <pre><code class="language-yaml">[params]
   customCSS = [&quot;css/prism.css&quot;]
   customJS = [&quot;js/prism.js&quot;, &quot;js/custom.js&quot;]
 </code></pre>
+
+<p>Copy the Python code snippet below, opening and closing <code>pre</code> HTML tags included, in a post. The CSS <code>font-family</code> declaration should be highlighted in the page generated.</p>
+
+<pre><code class="language-html">&lt;pre&gt;
+  &lt;code class=&quot;language-python&quot;&gt;
+  &gt;&gt;&gt; from pygments.styles import get_all_styles
+  &gt;&gt;&gt; styles = list(get_all_styles())
+  &gt;&gt;&gt; print styles
+  &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+
+<h2 id="extra-goal-2-a-secured-custom-domain-name">Extra goal 2: A secured custom domain name</h2>
+
+<p>Github pages does not offer secured custom domain name. The best way to get this feature for free is to use Cloudflare.</p>
+
+<p>First you need to buy your fancy domain name. One of the place to go for that is the domain registrar <a href="https://www.gandi.net/">Gandi</a>. To buy your domain name is the only thing not free.</p>
+
+<p>Once your domain bought creates a <a href="https://www.cloudflare.com/">Cloudflare</a> account.
+Add your domain name to your Couldflare account. Follow their guided setup, it is very well done.</p>
+
+<p>When you are asked to verify the DNS entries, add two A entries to point to Github servers. The up to date Github IPs can be found in their <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider">&ldquo;Setting up an apex domain&rdquo; help page</a>.<br />
+Add also a CNAME record to redirect the <code>www</code> subdomain to the root domain
+<img src="/img/build-free-static-site/cloudflare-records-setup.jpg" alt="Cloudflare records setup" /></p>
+
+<p>When you are asked to select a plan pick the <code>Free Website</code> plan</p>
+
+<p><img src="/img/build-free-static-site/cloudflare-free-plan.jpg" alt="Cloudflare free plan" /></p>
+
+<p>Once Cloudflare setup is done, add your domain to the Github Page section of your repository settings</p>
+
+<p><img src="/img/build-free-static-site/github-page-custom-domain.jpg" alt="Github page custom domain" /></p>
 
 </div>
 
