@@ -20,7 +20,7 @@ Everything as to stay free, so the generated pages are hosted in a [Github repos
 For my own needs I have added two extra goals at the end of the article. They are not interesting for everyone, feel free to drop them:
 
 - A beautiful code syntax highlighting of a wide range of languages. (free)  
-- A custom domain name (few bucks per year)
+- A secured custom domain name (few bucks per year)
 
 And yes, it should be done in less than 3 hours!
 
@@ -239,6 +239,9 @@ Run the script to publish your site
 Congratulations your first post is online!  
 Go visit it at your Github address. It's something like  [https://jcarmack.github.io](https://jcarmack.github.io) but with your Github username.
 
+From there, start the extra goals tutorial. They are only nice to have additions and your site is perfectly usable without them.
+If you think you need them, let's continue...
+
 ## Extra goal 1: the beautiful code syntax highlighting
 
 Syntax code highlighting is a must have feature for a developer site and so several solutions are available. This site uses [Prism](http://prismjs.com/) instead of the common choice [highlight.js](https://highlightjs.org/). Prism is better documented and more modular.
@@ -278,10 +281,116 @@ mv ~/Downloads/prism.js static/js
 mv ~/Downloads/prism.css static/css
 ```
 
-Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let's make the site load these files.  
+Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let's make the site load these files. Modify `config.toml` configuration file.
 
+```yaml
+[params]
+  customCSS = ["css/prism.css"]
+  customJS = ["js/prism.js"]
+```
+
+Copy the code snippet below, opening and closing `pre` HTML tags included, in a post. The CSS `font-family` declaration should be highlighted in the page generated.
+
+```html
+<pre>
+  <code class="language-css">
+  body {
+    font-family: "Noto Sans", sans-serif;
+  }
+  </code>
+</pre>
+``` 
+
+To highlight the languages not in the pre-selection the [Prism autoloader](http://prismjs.com/plugins/autoloader/) plugin has to be setup.  
+Download from the plugin page all language grammars.
+Create a `components` folder and move all grammars in this folder.
+
+```batch
+mkdir static/components
+unzip ~/Downloads/prism-components.zip -d static/components/
+```
+
+Create a new Javascript file `custom.js`. 
+
+```batch
+touch static/js/custom.js.
+```
+Add in `custom.js` file an instruction to make the autoloader finds grammars.
+
+```javascript
+Prism.plugins.autoloader.languages_path = "/components/";
+```
+
+Update `config.toml` configuration file.
 ```yaml
 [params]
   customCSS = ["css/prism.css"]
   customJS = ["js/prism.js", "js/custom.js"]
 ```
+
+Copy the Python code snippet below, opening and closing `pre` HTML tags included, in a post. The CSS `font-family` declaration should be highlighted in the page generated.
+```html
+<pre>
+  <code class="language-python">
+  >>> from pygments.styles import get_all_styles
+  >>> styles = list(get_all_styles())
+  >>> print styles
+  </code>
+</pre>
+``` 
+## Extra goal 2: A secured custom domain name
+
+Github pages does not offer secured custom domain name. The best way to get this feature for free is to use Cloudflare. 
+
+First you need to buy your fancy domain name. One of the places to go for that is the domain registrar [Gandi](https://www.gandi.net/). To buy your domain name is the only thing not free.
+
+Once your domain bought create a [Cloudflare](https://www.cloudflare.com/) account.
+Add your domain name to your Couldflare account. Follow their guided setup, it is very well done.
+
+When you are asked to verify the DNS entries, add two A entries to point to Github servers. Up to date Github IPs can be found in their ["Setting up an apex domain" help page](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).  
+Add also a CNAME record to redirect the `www` subdomain to the root domain
+![Cloudflare records setup](/img/build-free-static-site/cloudflare-records-setup.jpg)
+
+When you are asked to select a plan pick the `Free Website` plan
+
+![Cloudflare free plan](/img/build-free-static-site/cloudflare-free-plan.jpg)
+
+
+Once Cloudflare setup is done, add your domain to the Github Page section of your repository settings
+
+![Github page custom domain](/img/build-free-static-site/github-page-custom-domain.jpg)
+
+Github automatically adds and commits to your repository master branch one file named `CNAME`. This file content is your domain name. Add this file to your local copy of master
+
+```batch
+cd public
+git fetch --all
+git rebase origin/master
+git push origin master
+cd ..
+```
+
+Copy the `CNAME` file to the static folder to have it deployed on each website generation
+
+```batch
+cp public/CNAME static/CNAME
+git add static/CNAME
+git commit -m "Add CNAME file in static folder"
+git push origin source
+```
+
+Publish your site
+
+```batch
+./publish_to_master.sh
+```
+
+A good configuration redirects a non secured connection to a secured one. Cloudflare covers us on that.  
+Go to your site page on your Cloudlare account and select the `Page Rules` tab. Create a new page rule
+
+![Cloudlflare page rules](/img/build-free-static-site/cloudflare-page-rules.jpg)
+
+Your custom domain name is fully set up but one has to wait the DNS web hierarchy is well informed about it.  
+It is only a matter of patience. In few hours you will be able to share your brand new website.  
+
+Congratulations!
