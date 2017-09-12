@@ -391,6 +391,6 @@ Go to your site page on your Cloudlare account and select the `Page Rules` tab. 
 ![Cloudlflare page rules](/img/build-free-static-site/cloudflare-page-rules.jpg)
 
 Your custom domain name is fully set up but one has to wait the DNS web hierarchy is well informed about it.  
-It is only a matter of patience. In few hours you will be able to share your brand new website.  
+It's only a matter of patience. In few hours you will be able to share your brand new website.  
 
 Congratulations!
