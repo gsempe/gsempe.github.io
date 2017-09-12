@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
+Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.'>
+
+<meta property='og:title' content='Build a fast, secured and free static site in less than 3 hours • gsempe'>
+<meta property='og:description' content='Note: Unless you&rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
+Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.'>
+<meta property='og:url' content='https://fillmem.com/post/fast-secured-and-free-static-site/'>
+<meta property='og:site_name' content='Fill the memory'>
+<meta property='og:type' content='article'><meta property='article:author' content='https://facebook.com/gsempe'><meta property='article:section' content='Post'><meta property='article:tag' content='tutorial'><meta property='article:tag' content='frontend'><meta property='article:tag' content='static site'><meta property='article:published_time' content='2017-08-31T06:09:06&#43;01:00'/><meta property='article:modified_time' content='2017-08-31T06:09:06&#43;01:00'/>
+
+<meta name="generator" content="Hugo 0.26" />
+
+  <title>Build a fast, secured and free static site in less than 3 hours • gsempe</title>
+  <link rel='canonical' href='https://fillmem.com/post/fast-secured-and-free-static-site/'>
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/css/prism.css'>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-105858064-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='https://fillmem.com' 
+        
+      >Blog</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Fill the memory</p>
+          
+          <p class='site-description'>To move forward and to avoid losing time on the same things</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <h1 class='entry-title title'>Build a fast, secured and free static site in less than 3 hours</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-08-31T06:09:06&#43;01:00'>2017, Aug 31</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    gsempe
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    9 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  
+
+<p><sup><strong><em>Note:</em></strong> <em>Unless you&rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on <a href="https://medium.com">Medium</a></em></sup></p>
+
+<p>Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it. And here it is.<br />
+To be effective I picked <a href="https://gohugo.io/">Hugo</a> that I already know. It is as well, very fast, cross-platform, open source and ranked in the top 3 of static website generators: a very solid pick.<br />
+Everything as to stay free, so the generated pages are hosted in a <a href="https://pages.github.com/">Github repository</a> side by side with the website source code. It comes with a Github sub-domain served over a secured HTTPS connection for free as well.<br />
+For my own needs I have added two extra goals at the end of the article. They are not interesting for everyone, feel free to drop them:</p>
+
+<ul>
+<li>A beautiful code syntax highlighting of a wide range of languages. (free)<br /></li>
+<li>A secured custom domain name (few bucks per year)</li>
+</ul>
+
+<p>And yes, it should be done in less than 3 hours!</p>
+
+<h2 id="what-we-get-at-the-end">what we get at the end</h2>
+
+<p>No costs.<br />
+A complete control.<br />
+A very fast static site.<br />
+A secured website.<br />
+A website compliant to best practices.<br />
+A minimalist design.<br />
+A beautiful code syntax highlighting of a wide range of languages.</p>
+
+<h2 id="setup-the-development-environment">Setup the development environment</h2>
+
+<p>Create the directories structure</p>
+
+<pre><code class="language-batch">mkdir -p ~/Sources/fillmem
+cd ~/Sources/fillmem
+mkdir bin
+mkdir site
+</code></pre>
+
+<h3 id="install-hugo">Install Hugo</h3>
+
+<p>Check what&rsquo;s the last <a href="https://github.com/gohugoio/hugo/releases">Hugo release</a> and download the right version for your environment. My environment is a 64 bits MacOS.</p>
+
+<pre><code class="language-batch">curl -L -s -o bin/hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_macOS-64bit.tar.gz
+tar xvzf bin/hugo.tar.gz -C bin/
+</code></pre>
+
+<p>Verify that the Hugo generator is working properly by making it print its version</p>
+
+<pre><code class="language-batch">./hugo version
+Hugo Static Site Generator v0.26 darwin/amd64 BuildDate: 2017-08-07T08:09:45+01:00
+</code></pre>
+
+<h3 id="create-the-github-repository">Create the Github repository</h3>
+
+<p>I chose to do a <a href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages">user/organization page</a> as I&rsquo;m building my website. If you stick to this choice you can follow the next steps. Otherwise you&rsquo;re on your own!</p>
+
+<p>To get user page features activated the repository has to be named in a specific way. It&rsquo;s easier to understand with the example of this site.<br />
+My account username is <strong>gsempe</strong> at the address <a href="https://github.com/gsempe">https://github.com/<strong>gsempe</strong></a>.<br />
+This site is hosted in the repository named <strong>gsempe</strong>.github.io at the address <a href="https://github.com/gsempe/gsempe.github.io">https://github.com/<strong>gsempe</strong>/<strong>gsempe</strong>.github.io</a></p>
+
+<p>You have to follow this scheme.</p>
+
+<p>If your Github username is <code>jcarmack</code>, creates the repository <code>jcarmack.github.io</code>. Make it public, do not add a <code>README</code> file, neither a <code>.gitignore</code> or a <code>license</code> file. The <code>master</code> branch is the branch where generated pages are hosted, you don&rsquo;t want any non mandatory files there.</p>
+
+<h3 id="initiate-repository-branches">Initiate repository branches</h3>
+
+<p>Push the first commit on the <code>master</code> branch to create it. Generated pages will be pushed on this branch.</p>
+
+<pre><code class="language-batch">cd site
+git init
+git remote add origin git@github.com:jcarmack/jcarmack.github.io.git
+git commit --allow-empty -m &quot;Start the public branch&quot;
+git push -u origin master
+</code></pre>
+
+<p>Create the <code>source</code> branch. Website source code will be pushed on this branch.<br />
+The source branch has to have a <code>.gitignore</code> file to avoid to commit generated or temporary files. I use the online tool <a href="https://www.gitignore.io/">gitignore.io</a> to generate <code>.gitignore</code> files. It is very convenient to get the usual files to ignore regarding OSX, vim and Hugo in one curl command.</p>
+
+<pre><code class="language-batch">git checkout --orphan source
+curl -L -s -o .gitignore https://www.gitignore.io/api/osx%2Cvim%2Chugo
+git add .gitignore
+git commit -m &quot;Start to fill the memory&quot;
+git push origin source
+</code></pre>
+
+<p>Verify that the .gitignore file generated at the previous step contains the line <code>/public/</code>. If the line does not exist add it and commit this change.</p>
+
+<pre><code class="language-batch">cat .gitignore | grep public
+/public/
+</code></pre>
+
+<p>Use the git worktree feature to checkout the master branch to the ignored public sub-folder.<br />
+Why? By default, Hugo generates the site in the public folder. To have the master branch mapped to the public folder makes possible to easily chain site generation and publication steps without moving around files.</p>
+
+<pre><code class="language-batch">rm -rf public
+git worktree add -B master public origin/master
+</code></pre>
+
+<h2 id="configure-and-generate-the-site">Configure and generate the site</h2>
+
+<p>The environment setup is done and it&rsquo;s finally the moment to make the actual site.</p>
+
+<p>Create a new empty site tree</p>
+
+<pre><code class="language-batch">git checkout source
+../bin/hugo new site . --force
+git add config.toml archetypes/default.md
+git commit -m &quot;Add fresh empty site&quot;
+git push origin source
+</code></pre>
+
+<p>Add the Hugo theme. This site uses <a href="https://themes.gohugo.io/theme/minimo/">minimo theme</a><br />
+Why minimo theme? It&rsquo;s clean/minimalist. It supports categories/tags, renders correctly on desktop and mobile phones, and has built-in hooks to add custom Javascript and CSS.</p>
+
+<pre><code class="language-batch">git submodule add https://github.com/MunifTanjim/minimo themes/minimo
+git submodule init
+git submodule update
+cp themes/minimo/exampleSite/config.toml .
+</code></pre>
+
+<p>Modify the <code>config.toml</code> configuration file to fit your site.</p>
+
+<pre><code class="language-yaml">baseURL = &quot;https://jcarmack.github.io&quot;
+title = &quot;J. Carmack&quot;
+</code></pre>
+
+<pre><code class="language-yaml">[params]
+  description = &quot;Carmack static site&quot;
+</code></pre>
+
+<pre><code class="language-yaml">[author.social]
+  codepen = &quot;&quot;
+  email = &quot;&quot;
+  facebook = &quot;&quot;
+  github = &quot;&quot;
+  instagram = &quot;&quot;
+  twitter = &quot;ID_AA_Carmack&quot;
+  linkedin = &quot;&quot;
+
+</code></pre>
+
+<pre><code class="language-yaml">[[menu.main]]
+  name = &quot;Blog&quot;
+  weight = -70
+  identifier = &quot;jcarmack&quot;
+  url = &quot;https://jcarmack.github.io&quot;
+</code></pre>
+
+<p>Commit the changes</p>
+
+<pre><code class="language-batch">git add config.toml .gitmodules themes/minimo 
+git commit -m &quot;Add minimo theme&quot;
+git push origin source
+</code></pre>
+
+<p>Test the site</p>
+
+<pre><code class="language-batch">../bin/hugo server -D
+</code></pre>
+
+<p>If you open your web browser and you visit the address <code>http://localhost:1313/</code> the site should load even if there is no content for the moment.</p>
+
+<h2 id="add-the-first-post">Add the first post</h2>
+
+<p>Replace the Hugo default template by the theme default template and generate the first post skeleton.</p>
+
+<pre><code class="language-batch">cp themes/minimo/archetypes/default.md archetypes/default.md
+../bin/hugo new post/first-post.md
+</code></pre>
+
+<p>Edit the <code>content/post/first-post.md</code> file. There is only the <a href="https://gohugo.io/content-management/front-matter/">front matter</a> right after the generation. That is the way Hugo takes informations to generate pages. Improve it in the same way than this example.</p>
+
+<pre><code class="language-yaml">---
+categories:
+  - Others
+tags:
+  - hugo
+  - small talk
+title: &quot;Welcome to my new website&quot;
+slug: &quot;Welcome message&quot;
+date: 2017-09-05T05:58:27+01:00
+draft: true
+---
+</code></pre>
+
+<p>Below the last line of the front matter, the one with the 3 dashes <code>---</code> this is where you add the content of the post. The format used is Markdown. Copy/paste the following block to see it in action&hellip; And give an appreciated credit!</p>
+
+<pre><code class="language-markdown">## Welcome
+
+I'm very __happy__ to introduce my new website!  
+It's a static website that I have done in less than 3 hours with this [Hugo tutorial](https://fillmem.com/post/self-hosted-fast-secured-and-free-static-site/)
+
+</code></pre>
+
+<p>Test the site</p>
+
+<pre><code class="language-batch">../bin/hugo server -D
+</code></pre>
+
+<h2 id="publish-the-site-with-the-new-post">Publish the site with the new post</h2>
+
+<p>To let Hugo generator knows that the post done in the previous section is ready to be published the <code>draft</code> value in the front matter has to be set to <code>false</code></p>
+
+<pre><code class="language-yaml">draft: false
+</code></pre>
+
+<p>To be able to publish the site in one command add the <a href="https://github.com/gsempe/gsempe.github.io/blob/source/publish_to_master.sh">publish_to_master.sh</a> script at the root of your repository. This is the one that I use for this <a href="https://github.com/gsempe/gsempe.github.io/tree/source">site</a>.</p>
+
+<pre data-jsonp="https://api.github.com/repos/gsempe/gsempe.github.io/contents/publish_to_master.sh?ref=source" class="language-batch">
+
+</pre>
+
+<p>Commit the changes just before the last step</p>
+
+<pre><code class="language-batch">chmod u+x publish_to_master.sh
+git add * 
+git commit -m &quot;Add the first post&quot;
+git push origin source
+</code></pre>
+
+<p>Run the script to publish your site</p>
+
+<pre><code class="language-batch">./publish_to_master.sh
+</code></pre>
+
+<p>Congratulations your first post is online!<br />
+Go visit it at your Github address. It&rsquo;s something like  <a href="https://jcarmack.github.io">https://jcarmack.github.io</a> but with your Github username.</p>
+
+<p>From there, start the extra goals tutorial. They are only nice to have additions and your site is perfectly usable without them.
+If you think you need them, let&rsquo;s continue&hellip;</p>
+
+<h2 id="extra-goal-1-the-beautiful-code-syntax-highlighting">Extra goal 1: the beautiful code syntax highlighting</h2>
+
+<p>Syntax code highlighting is a must have feature for a developer site and so several solutions are available. This site uses <a href="http://prismjs.com/">Prism</a> instead of the common choice <a href="https://highlightjs.org/">highlight.js</a>. Prism is better documented and more modular.</p>
+
+<p>On the <a href="http://prismjs.com/download.html">Prism download page</a> check the languages that you use all the time. Let the one that you use from time to time not selected. The missing ones will be downloaded when needed. For instance on Fill The Memory the languages checked are:</p>
+
+<ul>
+<li>markup</li>
+<li>css</li>
+<li>clike</li>
+<li>javascript</li>
+<li>batch</li>
+<li>ruby</li>
+<li>erlang</li>
+<li>go</li>
+<li>makefile</li>
+<li>yaml</li>
+</ul>
+
+<p>The plugins selected are:</p>
+
+<ul>
+<li>line-highlight</li>
+<li>file-highlight</li>
+<li>jsonp-highlight</li>
+<li>autoloader</li>
+</ul>
+
+<p>Do your own selection of languages and plugins but keep <code>autoloader</code> plugin selected to be able to download dynamically a language not in your pre-selection.<br />
+Download JS and CSS files</p>
+
+<p><img src="/img/build-free-static-site/prism-download.jpg" alt="Prism download page" /></p>
+
+<p>Move Prism files to the static folder</p>
+
+<pre><code class="language-batch">mkdir static/js
+mkdir static/css
+mv ~/Downloads/prism.js static/js
+mv ~/Downloads/prism.css static/css
+</code></pre>
+
+<p>Minimo theme adds two hooks to load custom Javascript files and custom CSS files. Let&rsquo;s make the site load these files. Modify <code>config.toml</code> configuration file.</p>
+
+<pre><code class="language-yaml">[params]
+  customCSS = [&quot;css/prism.css&quot;]
+  customJS = [&quot;js/prism.js&quot;]
+</code></pre>
+
+<p>Copy the code snippet below, opening and closing <code>pre</code> HTML tags included, in a post. The CSS <code>font-family</code> declaration should be highlighted in the page generated.</p>
+
+<pre><code class="language-html">&lt;pre&gt;
+  &lt;code class=&quot;language-css&quot;&gt;
+  body {
+    font-family: &quot;Noto Sans&quot;, sans-serif;
+  }
+  &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+
+<p>To highlight the languages not in the pre-selection the <a href="http://prismjs.com/plugins/autoloader/">Prism autoloader</a> plugin has to be setup.<br />
+Download from the plugin page all language grammars.
+Create a <code>components</code> folder and move all grammars in this folder.</p>
+
+<pre><code class="language-batch">mkdir static/components
+unzip ~/Downloads/prism-components.zip -d static/components/
+</code></pre>
+
+<p>Create a new Javascript file <code>custom.js</code>.</p>
+
+<pre><code class="language-batch">touch static/js/custom.js.
+</code></pre>
+
+<p>Add in <code>custom.js</code> file an instruction to make the autoloader finds grammars.</p>
+
+<pre><code class="language-javascript">Prism.plugins.autoloader.languages_path = &quot;/components/&quot;;
+</code></pre>
+
+<p>Update <code>config.toml</code> configuration file.</p>
+
+<pre><code class="language-yaml">[params]
+  customCSS = [&quot;css/prism.css&quot;]
+  customJS = [&quot;js/prism.js&quot;, &quot;js/custom.js&quot;]
+</code></pre>
+
+<p>Copy the Python code snippet below, opening and closing <code>pre</code> HTML tags included, in a post. The Python <code>from</code> statement should be highlighted in the page generated.</p>
+
+<pre><code class="language-html">&lt;pre&gt;
+  &lt;code class=&quot;language-python&quot;&gt;
+  &gt;&gt;&gt; from pygments.styles import get_all_styles
+  &gt;&gt;&gt; styles = list(get_all_styles())
+  &gt;&gt;&gt; print styles
+  &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+
+<h2 id="extra-goal-2-a-secured-custom-domain-name">Extra goal 2: A secured custom domain name</h2>
+
+<p>Github pages does not offer secured custom domain name. The best way to get this feature for free is to use Cloudflare.</p>
+
+<p>First you need to buy your fancy domain name. One of the places to go for that is the domain registrar <a href="https://www.gandi.net/">Gandi</a>. To buy your domain name is the only thing not free.</p>
+
+<p>Once your domain bought create a <a href="https://www.cloudflare.com/">Cloudflare</a> account.
+Add your domain name to your Couldflare account. Follow their guided setup, it is very well done.</p>
+
+<p>When you are asked to verify the DNS entries, add two A entries to point to Github servers. Up to date Github IPs can be found in their <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider">&ldquo;Setting up an apex domain&rdquo; help page</a>.<br />
+Add also a CNAME record to redirect the <code>www</code> subdomain to the root domain
+<img src="/img/build-free-static-site/cloudflare-records-setup.jpg" alt="Cloudflare records setup" /></p>
+
+<p>When you are asked to select a plan pick the <code>Free Website</code> plan</p>
+
+<p><img src="/img/build-free-static-site/cloudflare-free-plan.jpg" alt="Cloudflare free plan" /></p>
+
+<p>Once Cloudflare setup is done, add your domain to the Github Page section of your repository settings</p>
+
+<p><img src="/img/build-free-static-site/github-page-custom-domain.jpg" alt="Github page custom domain" /></p>
+
+<p>Github automatically adds and commits to your repository master branch one file named <code>CNAME</code>. This file content is your domain name. Add this file to your local copy of master</p>
+
+<pre><code class="language-batch">cd public
+git fetch --all
+git rebase origin/master
+git push origin master
+cd ..
+</code></pre>
+
+<p>Copy the <code>CNAME</code> file to the static folder to have it deployed on each website generation</p>
+
+<pre><code class="language-batch">cp public/CNAME static/CNAME
+git add static/CNAME
+git commit -m &quot;Add CNAME file in static folder&quot;
+git push origin source
+</code></pre>
+
+<p>Publish your site</p>
+
+<pre><code class="language-batch">./publish_to_master.sh
+</code></pre>
+
+<p>A good configuration redirects a non secured connection to a secured one. Cloudflare covers us on that.<br />
+Go to your site page on your Cloudlare account and select the <code>Page Rules</code> tab. Create a new page rule</p>
+
+<p><img src="/img/build-free-static-site/cloudflare-page-rules.jpg" alt="Cloudlflare page rules" /></p>
+
+<p>Your custom domain name is fully set up but one has to wait the DNS web hierarchy is well informed about it.<br />
+It&rsquo;s only a matter of patience. In few hours you will be able to share your brand new website.</p>
+
+<p>Congratulations!</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/categories/doings'>Doings</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/tutorial'>tutorial</a>, <a class='tag' href='/tags/frontend'>frontend</a>, <a class='tag' href='/tags/static-site'>static site</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='mailto:guillaume.sempe@gmail.com' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Email account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://facebook.com/gsempe' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Facebook account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://github.com/gsempe' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Github account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://instagram.com/gsempe' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Instagram account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://linkedin.com/in/gsempe' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Linkedin account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+  
+</svg>
+
+        </a>
+      </li><li>
+        <a href='https://twitter.com/tx' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Twitter account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>
+    
+  
+  &copy; 2017 Guillaume Sempe</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/js/main.af838dd5.js'></script>
+  
+    <script src='/js/prism.js'></script>
+  
+    <script src='/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+
