@@ -328,7 +328,7 @@ Update `config.toml` configuration file.
   customJS = ["js/prism.js", "js/custom.js"]
 ```
 
-Copy the Python code snippet below, opening and closing `pre` HTML tags included, in a post. The CSS `font-family` declaration should be highlighted in the page generated.
+Copy the Python code snippet below, opening and closing `pre` HTML tags included, in a post. The Python `from` statement should be highlighted in the page generated.
 ```html
 <pre>
   <code class="language-python">
