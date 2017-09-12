@@ -6,9 +6,10 @@ tags:
   - frontend
   - static site
 
-title: "Build a self-hosted, fast, secured and free static site in less than 3 hours"
-slug: "Self-Hosted Fast Secured And Free Static Site"
+title: "Build a fast, secured and free static site in less than 3 hours"
+slug: "Fast Secured And Free Static Site"
 date: 2017-08-31T06:09:06+01:00
+aliases: ["post/self-hosted-fast-secured-and-free-static-site/"]
 draft: false
 ---
 
