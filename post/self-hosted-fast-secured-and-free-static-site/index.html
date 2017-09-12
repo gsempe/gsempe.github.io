@@ -107,7 +107,7 @@ ga('send', 'pageview');
   
 </svg>
 
-    8 mins read
+    9 mins read
   </span>
   
 </div>
@@ -444,12 +444,12 @@ unzip ~/Downloads/prism-components.zip -d static/components/
 
 <p>Github pages does not offer secured custom domain name. The best way to get this feature for free is to use Cloudflare.</p>
 
-<p>First you need to buy your fancy domain name. One of the place to go for that is the domain registrar <a href="https://www.gandi.net/">Gandi</a>. To buy your domain name is the only thing not free.</p>
+<p>First you need to buy your fancy domain name. One of the places to go for that is the domain registrar <a href="https://www.gandi.net/">Gandi</a>. To buy your domain name is the only thing not free.</p>
 
-<p>Once your domain bought creates a <a href="https://www.cloudflare.com/">Cloudflare</a> account.
+<p>Once your domain bought create a <a href="https://www.cloudflare.com/">Cloudflare</a> account.
 Add your domain name to your Couldflare account. Follow their guided setup, it is very well done.</p>
 
-<p>When you are asked to verify the DNS entries, add two A entries to point to Github servers. The up to date Github IPs can be found in their <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider">&ldquo;Setting up an apex domain&rdquo; help page</a>.<br />
+<p>When you are asked to verify the DNS entries, add two A entries to point to Github servers. Up to date Github IPs can be found in their <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider">&ldquo;Setting up an apex domain&rdquo; help page</a>.<br />
 Add also a CNAME record to redirect the <code>www</code> subdomain to the root domain
 <img src="/img/build-free-static-site/cloudflare-records-setup.jpg" alt="Cloudflare records setup" /></p>
 
@@ -460,6 +460,38 @@ Add also a CNAME record to redirect the <code>www</code> subdomain to the root d
 <p>Once Cloudflare setup is done, add your domain to the Github Page section of your repository settings</p>
 
 <p><img src="/img/build-free-static-site/github-page-custom-domain.jpg" alt="Github page custom domain" /></p>
+
+<p>Github automatically adds and commits to your repository master branch one file named <code>CNAME</code>. This file content is your domain name. Add this file to your local copy of master</p>
+
+<pre><code class="language-batch">cd public
+git fetch --all
+git rebase origin/master
+git push origin master
+cd ..
+</code></pre>
+
+<p>Copy the <code>CNAME</code> file to the static folder to have it deployed on each website generation</p>
+
+<pre><code class="language-batch">cp public/CNAME static/CNAME
+git add static/CNAME
+git commit -m &quot;Add CNAME file in static folder&quot;
+git push origin source
+</code></pre>
+
+<p>Publish your site</p>
+
+<pre><code class="language-batch">./publish_to_master.sh
+</code></pre>
+
+<p>A good configuration redirects a non secured connection to a secured one. Cloudflare covers us on that.<br />
+Go to your site page on your Cloudlare account and select the <code>Page Rules</code> tab. Create a new page rule</p>
+
+<p><img src="/img/build-free-static-site/cloudflare-page-rules.jpg" alt="Cloudlflare page rules" /></p>
+
+<p>Your custom domain name is fully set up but one has to wait the DNS web hierarchy is well informed about it.<br />
+It is only a matter of patience. In few hours you will be able to share your brand new website.</p>
+
+<p>Congratulations!</p>
 
 </div>
 
