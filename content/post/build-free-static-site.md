@@ -1,4 +1,9 @@
 ---
+description: "A free static site tutorial. Host the website on Github. Use a secured custom domain name with Cloudflare"
+keywords:
+  - free static site
+  - website tutorial
+  - Hugo
 categories:
   - Doings
 tags:
@@ -9,6 +14,7 @@ tags:
 title: "Build a fast, secured and free static site in less than 3 hours"
 slug: "Fast Secured And Free Static Site"
 date: 2017-08-31T06:09:06+01:00
+lastmod: 2017-09-18T10:10:06+01:00
 aliases: ["post/self-hosted-fast-secured-and-free-static-site/"]
 draft: false
 ---
