@@ -43,6 +43,8 @@ git fetch --all
 echo "* Switching to website source branch $BRANCH_SITE_SOURCE..."
 git checkout $BRANCH_SITE_SOURCE
 git pull --ff-only
+git submodule init
+git submodule update
 
 if [ ! -d "public" ]; then
 	echo "* Creating public branch $BRANCH_PUBLIC worktree in public folder..."
