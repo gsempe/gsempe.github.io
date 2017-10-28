@@ -69,7 +69,7 @@ This trick is applicable to all images. I describe it with the postgres image be
 
 ## Free your SSD space, delete docker history
 
-After few months of usage and if you never clean, projects after projects, Docker is literally eating disk space.
+After few months of usage and if you never clean, projects after projects, Docker is literally eating your disk space.
 
 Remove all the containers from your machine
 
