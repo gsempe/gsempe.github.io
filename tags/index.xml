@@ -5,10 +5,28 @@
     <link>https://fillmem.com/tags/</link>
     <description>Recent content in Tags on Fill the memory</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 31 Aug 2017 06:09:06 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 23 Oct 2017 05:45:26 +0100</lastBuildDate>
     
 	<atom:link href="https://fillmem.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Devops</title>
+      <link>https://fillmem.com/tags/devops/</link>
+      <pubDate>Mon, 23 Oct 2017 05:45:26 +0100</pubDate>
+      
+      <guid>https://fillmem.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://fillmem.com/tags/docker/</link>
+      <pubDate>Mon, 23 Oct 2017 05:45:26 +0100</pubDate>
+      
+      <guid>https://fillmem.com/tags/docker/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Frontend</title>
