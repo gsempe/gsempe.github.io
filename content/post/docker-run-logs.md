@@ -43,6 +43,8 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 If your container is not listed above, we have the same problem. Our containers are not running, probably terminated during the initialization steps because of an error in the customization.
 
+**First way**
+
 To find what happened, give the `docker run` command result to the `docker log` command. The `docker run` command print the ID of the container it creates and so one gives it as a parameter to the `docker log` command
 
 ```batch
@@ -66,6 +68,24 @@ pg_restore: [archiver] input file appears to be a text format dump. Please use p
 Et voilà! The last line printed by the container logs tells me that I use the dump of the postgres database in a wrong way. I should use `psql` instead of `pg_restore`.
 
 This trick is applicable to all images. I describe it with the postgres image because it's my personal case.
+
+**Alternative way**
+
+I have the habits to execute the docker run command with the `--rm` option: Automatically remove the container when it exits.
+
+If one executes the `docker run` command without it, it's possible to get the container logs after its termination
+
+```batch
+# Run without --rm option
+docker run -d --name cdadb -p 5432:5432 pgsql
+bd6ddfba3ce3a9dd0d9e912b8617603ba49425a2df67d45ff183bd1a6a380603
+# List all containers even the terminated ones
+docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
+bd6ddfba3ce3        pgsql               "docker-entrypoint..."   6 seconds ago       Exited (1) 3 seconds ago                       cdadb
+# Print the logs
+docker logs pgsql
+```
 
 ## Free your SSD space, delete docker history
 
