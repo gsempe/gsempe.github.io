@@ -12,7 +12,7 @@ tags:
 title: "Fix \"library not loaded\" error with Brew"
 slug: "library not loaded osx Brew"
 date: 2018-06-12T23:47:27+01:00
-draft: true
+draft: false
 ---
 
 Ruby, PHP and a lot other languages rely on system libraries to provide some features in their own ecosystems. It times to times leads to this kind of error
