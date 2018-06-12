@@ -4,18 +4,18 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='How to dominate Docker when you use it sparsely'>
+<meta name='description' content='Use Brew and how to fix library not loaded error on OSX'>
 
-<meta property='og:title' content='Docker&#39;s first aid for software developers • gsempe'>
-<meta property='og:description' content='How to dominate Docker when you use it sparsely'>
-<meta property='og:url' content='https://fillmem.com/post/docker-tips-software-developers/'>
+<meta property='og:title' content='Fix &#34;library not loaded&#34; error with Brew • gsempe'>
+<meta property='og:description' content='Use Brew and how to fix library not loaded error on OSX'>
+<meta property='og:url' content='https://fillmem.com/post/library-not-loaded-osx-brew/'>
 <meta property='og:site_name' content='Fill the memory'>
-<meta property='og:type' content='article'><meta property='article:author' content='https://facebook.com/gsempe'><meta property='article:section' content='Post'><meta property='article:tag' content='devops'><meta property='article:tag' content='docker'><meta property='article:published_time' content='2017-10-23T05:45:26&#43;01:00'/><meta property='article:modified_time' content='2017-10-28T16:16:16&#43;01:00'/>
+<meta property='og:type' content='article'><meta property='article:author' content='https://facebook.com/gsempe'><meta property='article:section' content='Post'><meta property='article:tag' content='devops'><meta property='article:published_time' content='2018-06-12T23:47:27&#43;01:00'/><meta property='article:modified_time' content='2018-06-12T23:47:27&#43;01:00'/>
 
 <meta name="generator" content="Hugo 0.26" />
 
-  <title>Docker&#39;s first aid for software developers • gsempe</title>
-  <link rel='canonical' href='https://fillmem.com/post/docker-tips-software-developers/'>
+  <title>Fix &#34;library not loaded&#34; error with Brew • gsempe</title>
+  <link rel='canonical' href='https://fillmem.com/post/library-not-loaded-osx-brew/'>
   
   <link rel='icon' href='/favicon.ico'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
@@ -65,10 +65,10 @@ ga('send', 'pageview');
   <article lang='en' class='entry'>
     <header class='entry-header'>
   <div class='entry-info'>
-    <h1 class='entry-title title'>Docker&#39;s first aid for software developers</h1>
+    <h1 class='entry-title title'>Fix &#34;library not loaded&#34; error with Brew</h1>
     
     <p class='entry-subtitle'>
-      How to dominate Docker when you use it sparsely
+      Use Brew and how to fix library not loaded error on OSX
     </p>
     
   </div>
@@ -85,7 +85,7 @@ ga('send', 'pageview');
 </svg>
 
     <span class='screen-reader'>Posted on </span>
-    <time class='date' datetime='2017-10-23T05:45:26&#43;01:00'>2017, Oct 23</time>
+    <time class='date' datetime='2018-06-12T23:47:27&#43;01:00'>2018, Jun 12</time>
   </span>
   
   <span class='byline'>
@@ -109,7 +109,7 @@ ga('send', 'pageview');
   
 </svg>
 
-    3 mins read
+    2 mins read
   </span>
   
 </div>
@@ -118,90 +118,46 @@ ga('send', 'pageview');
 </header>
 
     <div class='entry-content'>
-  
+  <p>Ruby, PHP and a lot other languages rely on system libraries to provide some features in their own ecosystems. It times to times leads to this kind of error</p>
 
-<p><sup><strong><em>Note:</em></strong> <em>If you have as well some tricks to cover you when you use Docker, I&rsquo;ll be pleased to add them</em></sup></p>
-
-<p>As a software developer, I work with Docker quite rarely. I create at the beginning of a project:</p>
-
-<ul>
-<li>the scripts to build the needed custom docker images</li>
-<li>the scripts to launch quickly the docker containers</li>
-<li>and that&rsquo;s  almost all.</li>
-</ul>
-
-<p>If you&rsquo;re like me, you probably forget quickly the Docker way or the tips and after 30 mins of déjà vu digging, you get frustrated.</p>
-
-<h2 id="debug-docker-run-when-the-container-terminates-immediately">Debug docker run when the container terminates immediately</h2>
-
-<p>Launch your container with the <code>docker run</code> command</p>
-
-<pre><code class="language-batch">docker run -d --name cdadb --rm -p 5432:5432 pgsql
-a0bfa9fa74b66ddd1c2242f169fc508d47c83263ac92667cd8adaa7bbc1c9ae4
+<pre><code class="language-batch">Library not loaded: /usr/local/lib/libjpeg.8.dylib
 </code></pre>
 
-<p>Then check if it&rsquo;s running with the <code>docker ps</code> command</p>
+<p>A large majority of developers on OSX use <a href="https://brew.sh/">Brew package manager</a> to install the libraries they need. On the above library loading error, the immediate reaction is so to brew install it</p>
 
-<pre><code class="language-batch">docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+<pre><code class="language-batch">brew install libjpeg
+Warning: jpeg 9c is already installed and up-to-date
+To reinstall 9c, run `brew reinstall jpeg`
 </code></pre>
 
-<p>If your container is not listed above, we have the same problem. Our containers are not running, probably terminated during the initialization steps because of an error in the customization.</p>
+<p>In most of the cases, you don&rsquo;t have the library missing installed and you can continue with you main task. In some cases, like mine, you already have it installed and you still have your problem.</p>
 
-<p><strong>First way</strong></p>
+<p>The solution can be to <code>switch</code> the <code>libjpeg</code> version installed by <code>Brew</code>. First, retrieve the info of the formulae</p>
 
-<p>To find what happened, give the <code>docker run</code> command result to the <code>docker log</code> command. The <code>docker run</code> command print the ID of the container it creates and so one gives it as a parameter to the <code>docker log</code> command</p>
-
-<pre><code class="language-batch">docker logs -f $(docker run -d --name $BASENAME --rm -p 5432:5432 $BASENAME-backend)
+<pre><code class="language-batch">brew info libjpeg
+jpeg: stable 9c (bottled)
+Image manipulation library
+http://www.ijg.org
+/usr/local/Cellar/jpeg/8d (19 files, 731.2KB)
+  Poured from bottle on 2014-10-17 at 21:30:18
+/usr/local/Cellar/jpeg/9b (20 files, 724KB)
+  Poured from bottle on 2018-02-20 at 17:37:34
+/usr/local/Cellar/jpeg/9c (21 files, 724.6KB) *
+  Poured from bottle on 2018-06-12 at 14:24:01
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/jpeg.rb
 </code></pre>
 
-<pre><code class="language-sh">The files belonging to this database system will be owned by user &quot;postgres&quot;.
-This user must also own the server process.
+<p>And finally, switch to the version that you need. I was needed version 8, so I&rsquo;m interested in <code>8d</code> version</p>
 
-[...]
-
-/usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/01_setup_db_dump.sql
-
-[...]
-
-/usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/02_backup_dump.sh
-pg_restore: [archiver] input file appears to be a text format dump. Please use psql.
+<pre><code class="language-batch">brew switch libjpeg 8d
+Cleaning /usr/local/Cellar/jpeg/8d
+Cleaning /usr/local/Cellar/jpeg/9b
+Cleaning /usr/local/Cellar/jpeg/9c
+17 links created for /usr/local/Cellar/jpeg/8d
 </code></pre>
 
-<p>Et voilà! The last line printed by the container logs tells me that I use the dump of the postgres database in a wrong way. I should use <code>psql</code> instead of <code>pg_restore</code>.</p>
-
-<p>This trick is applicable to all images. I describe it with the postgres image because it&rsquo;s my personal case.</p>
-
-<p><strong>Alternative way</strong></p>
-
-<p>I have the habits to execute the docker run command with the <code>--rm</code> option: Automatically remove the container when it exits.</p>
-
-<p>If one executes the <code>docker run</code> command without it, it&rsquo;s possible to get the container logs after its termination</p>
-
-<pre><code class="language-batch"># Run without --rm option
-docker run -d --name cdadb -p 5432:5432 pgsql
-bd6ddfba3ce3a9dd0d9e912b8617603ba49425a2df67d45ff183bd1a6a380603
-# List all containers even the terminated ones
-docker ps -a
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
-bd6ddfba3ce3        pgsql               &quot;docker-entrypoint...&quot;   6 seconds ago       Exited (1) 3 seconds ago                       cdadb
-# Print the logs
-docker logs pgsql
-</code></pre>
-
-<h2 id="free-your-ssd-space-delete-docker-history">Free your SSD space, delete docker history</h2>
-
-<p>After few months of usage and if you never clean, projects after projects, Docker is literally eating your disk space.</p>
-
-<p>Remove all the containers from your machine</p>
-
-<pre><code class="language-batch">docker rm -f $(docker ps -a -q)
-</code></pre>
-
-<p>Remove all the images from your machine</p>
-
-<pre><code class="language-batch">docker rmi -f $(docker images -q)
-</code></pre>
+<p>In many case, it makes it and this quick tip will help me to go faster next time.<br />
+Hopefully it&rsquo;ll help you too.</p>
 
 </div>
 
@@ -239,7 +195,7 @@ docker logs pgsql
 </svg>
 
   </span>
-  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/devops'>devops</a>, <a class='tag' href='/tags/docker'>docker</a></div>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/devops'>devops</a></div>
 
     
   
@@ -252,7 +208,7 @@ docker logs pgsql
     
 <nav class='entry-nav'>
   <div class='entry-nav-links'><div class='prev-entry'>
-      <a href='https://fillmem.com/post/fast-secured-and-free-static-site/'>
+      <a href='https://fillmem.com/post/docker-tips-software-developers/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -260,17 +216,7 @@ docker logs pgsql
   
 </svg>
  Previous</span>
-        <span class='screen-reader'>Previous post: </span>Build a fast, secured and free static site in less than 3 hours</a>
-    </div><div class='next-entry'>
-      <a href='https://fillmem.com/post/library-not-loaded-osx-brew/'>
-        <span class='screen-reader'>Next post: </span>Fix &#34;library not loaded&#34; error with Brew<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader'>Previous post: </span>Docker&#39;s first aid for software developers</a>
     </div></div>
 </nav>
 

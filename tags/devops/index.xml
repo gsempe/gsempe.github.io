@@ -5,10 +5,21 @@
     <link>https://fillmem.com/tags/devops/</link>
     <description>Recent content in Devops on Fill the memory</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 23 Oct 2017 05:45:26 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 12 Jun 2018 23:47:27 +0100</lastBuildDate>
     
 	<atom:link href="https://fillmem.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fix &#34;library not loaded&#34; error with Brew</title>
+      <link>https://fillmem.com/post/library-not-loaded-osx-brew/</link>
+      <pubDate>Tue, 12 Jun 2018 23:47:27 +0100</pubDate>
+      
+      <guid>https://fillmem.com/post/library-not-loaded-osx-brew/</guid>
+      <description>Ruby, PHP and a lot other languages rely on system libraries to provide some features in their own ecosystems. It times to times leads to this kind of error
+Library not loaded: /usr/local/lib/libjpeg.8.dylib  A large majority of developers on OSX use Brew package manager to install the libraries they need. On the above library loading error, the immediate reaction is so to brew install it
+brew install libjpeg Warning: jpeg 9c is already installed and up-to-date To reinstall 9c, run `brew reinstall jpeg`  In most of the cases, you don&amp;rsquo;t have the library missing installed and you can continue with you main task.</description>
+    </item>
     
     <item>
       <title>Docker&#39;s first aid for software developers</title>
