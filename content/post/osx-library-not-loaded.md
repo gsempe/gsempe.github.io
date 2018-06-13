@@ -31,7 +31,7 @@ To reinstall 9c, run `brew reinstall jpeg`
 
 In most of the cases, you don't have the library missing installed and you can continue with you main task. In some cases, like mine, you already have it installed and you still have your problem.
 
-The solution can be to `switch` the `libjpeg` version installed by `Brew`. First, retrieve the info of the formulae
+The solution can be to `switch` the `libjpeg` version installed by `Brew`. First, retrieve the formulae's info
 
 ```batch
 brew info libjpeg
@@ -57,5 +57,5 @@ Cleaning /usr/local/Cellar/jpeg/9c
 17 links created for /usr/local/Cellar/jpeg/8d
 ```
 
-In many case, it makes it, and this quick tip will help me to go faster next time.   
+For me it made it, and this quick tip will help me to go faster next time.   
 Hopefully, it'll help you too.
