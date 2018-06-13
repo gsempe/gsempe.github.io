@@ -57,5 +57,5 @@ Cleaning /usr/local/Cellar/jpeg/9c
 17 links created for /usr/local/Cellar/jpeg/8d
 ```
 
-For me it made it, and this quick tip will help me to go faster next time.   
+It fixed the error in my case. This quick tip will help me to go faster next time.   
 Hopefully, it'll help you too.
