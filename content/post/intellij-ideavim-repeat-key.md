@@ -14,7 +14,7 @@ tags:
 
 title: "IntelliJ IDEA and IdeaVim key does not repeat"
 date: 2018-06-30T17:30:50+01:00
-draft: true
+draft: false
 ---
 
 When I started C language years ago, I became a Vim editor developer. Since then, for all my backend developments, I have been faithful to Vim.  
