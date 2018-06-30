@@ -4,18 +4,18 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Use Brew and how to fix library not loaded error on OSX'>
+<meta name='description' content='How to fix the IdeaVim key repeat is not working'>
 
-<meta property='og:title' content='Fix &#34;library not loaded&#34; error with Brew • gsempe'>
-<meta property='og:description' content='Use Brew and how to fix library not loaded error on OSX'>
-<meta property='og:url' content='https://fillmem.com/post/library-not-loaded-osx-brew/'>
+<meta property='og:title' content='IntelliJ IDEA and IdeaVim key does not repeat • gsempe'>
+<meta property='og:description' content='How to fix the IdeaVim key repeat is not working'>
+<meta property='og:url' content='https://fillmem.com/post/intellij-ideavim-repeat-key/'>
 <meta property='og:site_name' content='Fill the memory'>
-<meta property='og:type' content='article'><meta property='article:author' content='https://facebook.com/gsempe'><meta property='article:section' content='Post'><meta property='article:tag' content='devops'><meta property='article:published_time' content='2018-06-12T23:47:27&#43;01:00'/><meta property='article:modified_time' content='2018-06-12T23:47:27&#43;01:00'/>
+<meta property='og:type' content='article'><meta property='article:author' content='https://facebook.com/gsempe'><meta property='article:section' content='Post'><meta property='article:tag' content='vim'><meta property='article:tag' content='intellij'><meta property='article:published_time' content='2018-06-30T17:30:50&#43;01:00'/><meta property='article:modified_time' content='2018-06-30T17:30:50&#43;01:00'/>
 
 <meta name="generator" content="Hugo 0.26" />
 
-  <title>Fix &#34;library not loaded&#34; error with Brew • gsempe</title>
-  <link rel='canonical' href='https://fillmem.com/post/library-not-loaded-osx-brew/'>
+  <title>IntelliJ IDEA and IdeaVim key does not repeat • gsempe</title>
+  <link rel='canonical' href='https://fillmem.com/post/intellij-ideavim-repeat-key/'>
   
   <link rel='icon' href='/favicon.ico'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
@@ -65,10 +65,10 @@ ga('send', 'pageview');
   <article lang='en' class='entry'>
     <header class='entry-header'>
   <div class='entry-info'>
-    <h1 class='entry-title title'>Fix &#34;library not loaded&#34; error with Brew</h1>
+    <h1 class='entry-title title'>IntelliJ IDEA and IdeaVim key does not repeat</h1>
     
     <p class='entry-subtitle'>
-      Use Brew and how to fix library not loaded error on OSX
+      How to fix the IdeaVim key repeat is not working
     </p>
     
   </div>
@@ -85,7 +85,7 @@ ga('send', 'pageview');
 </svg>
 
     <span class='screen-reader'>Posted on </span>
-    <time class='date' datetime='2018-06-12T23:47:27&#43;01:00'>2018, Jun 12</time>
+    <time class='date' datetime='2018-06-30T17:30:50&#43;01:00'>2018, Jun 30</time>
   </span>
   
   <span class='byline'>
@@ -118,46 +118,34 @@ ga('send', 'pageview');
 </header>
 
     <div class='entry-content'>
-  <p>Ruby, PHP and a lot other languages rely on system libraries to provide some features in their own ecosystems. It times to times leads to this kind of error</p>
+  <p>When I started C language years ago, I became a Vim editor developer. Since then, for all my backend developments, I have been faithful to Vim.</p>
 
-<pre><code class="language-batch">Library not loaded: /usr/local/lib/libjpeg.8.dylib
+<p>Few weeks ago, when I started to code in Elixir, I started as well to use <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> with the <a href="https://github.com/KronicDeth/intellij-elixir">Elixir plugin</a> and obviously the <a href="https://github.com/JetBrains/ideavim">Vim plugin</a>.</p>
+
+<p>On OSX, when you use the combination IntelliJ and IdeaVim it can happen that the keys you hold does not repeat themselves. For instance, when you are used to navigate in your code by holding the <code>b</code> or the <code>w</code> key to move in one line of code you feel quickly unproductive with this limitation.</p>
+
+<p>To solve this issue IdeaVim team advises to change globally the <code>ApplePressAndHoldEnable</code> key value to false (cf. this <a href="https://github.com/JetBrains/ideavim/blob/master/src/com/maddyhome/idea/vim/helper/MacKeyRepeat.java#L33">IdeaVim code</a>)</p>
+
+<pre><code class="language-bash">defaults write -globalDomain ApplePressAndHoldEnable -bool false
 </code></pre>
 
-<p>A large majority of developers on OSX use <a href="https://brew.sh/">Brew package manager</a> to install the libraries they need. On the above library loading error, the immediate reaction is so to brew install it</p>
+<p>This change fix the do not repeat key issue but impact your whole system. The problem can be fixed by changing the <code>ApplePressAndHoldEnable</code> key only in the Jetbrains IntelliJ domain</p>
 
-<pre><code class="language-batch">brew install libjpeg
-Warning: jpeg 9c is already installed and up-to-date
-To reinstall 9c, run `brew reinstall jpeg`
+<pre><code class="language-bash">defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool 0
 </code></pre>
 
-<p>In most of the cases, you don&rsquo;t have the library missing installed and you can continue with you main task. In some cases, like mine, you already have it installed and you still have your problem.</p>
+<p>To be sure that your command has been accepted, the defaults read should return <code>0</code></p>
 
-<p>The solution can be to <code>switch</code> the <code>libjpeg</code> version installed by <code>Brew</code>. First, retrieve the formulae&rsquo;s info</p>
-
-<pre><code class="language-batch">brew info libjpeg
-jpeg: stable 9c (bottled)
-Image manipulation library
-http://www.ijg.org
-/usr/local/Cellar/jpeg/8d (19 files, 731.2KB)
-  Poured from bottle on 2014-10-17 at 21:30:18
-/usr/local/Cellar/jpeg/9b (20 files, 724KB)
-  Poured from bottle on 2018-02-20 at 17:37:34
-/usr/local/Cellar/jpeg/9c (21 files, 724.6KB) *
-  Poured from bottle on 2018-06-12 at 14:24:01
-From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/jpeg.rb
+<pre><code class="language-bash">defaults read com.jetbrains.intellij ApplePressAndHoldEnabled
+0
 </code></pre>
 
-<p>And finally, switch to the version that you need. I was needed version 8, so I&rsquo;m interested in <code>8d</code> version</p>
+<p>You have to restart IntelliJ IDEA to let it gets this change.</p>
 
-<pre><code class="language-batch">brew switch libjpeg 8d
-Cleaning /usr/local/Cellar/jpeg/8d
-Cleaning /usr/local/Cellar/jpeg/9b
-Cleaning /usr/local/Cellar/jpeg/9c
-17 links created for /usr/local/Cellar/jpeg/8d
+<p>If you have any doubts, you can verify that the JetBrains IntelliJ domain is still <code>com.jetbrains.intellij</code></p>
+
+<pre><code class="language-bash">defaults domains | tr ',' '\n' | grep jetbrains
 </code></pre>
-
-<p>It fixed the error in my case. This quick tip will help me to go faster next time.<br />
-Hopefully, it&rsquo;ll help you too.</p>
 
 </div>
 
@@ -195,7 +183,7 @@ Hopefully, it&rsquo;ll help you too.</p>
 </svg>
 
   </span>
-  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/devops'>devops</a></div>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/tags/vim'>vim</a>, <a class='tag' href='/tags/intellij'>intellij</a></div>
 
     
   
@@ -208,7 +196,7 @@ Hopefully, it&rsquo;ll help you too.</p>
     
 <nav class='entry-nav'>
   <div class='entry-nav-links'><div class='prev-entry'>
-      <a href='https://fillmem.com/post/docker-tips-software-developers/'>
+      <a href='https://fillmem.com/post/library-not-loaded-osx-brew/'>
         <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <line x1="20" y1="12" x2="4" y2="12"/>
@@ -216,17 +204,7 @@ Hopefully, it&rsquo;ll help you too.</p>
   
 </svg>
  Previous</span>
-        <span class='screen-reader'>Previous post: </span>Docker&#39;s first aid for software developers</a>
-    </div><div class='next-entry'>
-      <a href='https://fillmem.com/post/intellij-ideavim-repeat-key/'>
-        <span class='screen-reader'>Next post: </span>IntelliJ IDEA and IdeaVim key does not repeat<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="4" y1="12" x2="20" y2="12"/>
-  <polyline points="14 6 20 12 14 18"/>
-  
-</svg>
-</span>
-      </a>
+        <span class='screen-reader'>Previous post: </span>Fix &#34;library not loaded&#34; error with Brew</a>
     </div></div>
 </nav>
 

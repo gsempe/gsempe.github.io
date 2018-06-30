@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://fillmem.com/post/intellij-ideavim-repeat-key/</loc>
+    <lastmod>2018-06-30T17:30:50+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://fillmem.com/post/library-not-loaded-osx-brew/</loc>
     <lastmod>2018-06-12T23:47:27+01:00</lastmod>
   </url>
@@ -42,7 +47,7 @@
   
   <url>
     <loc>https://fillmem.com/</loc>
-    <lastmod>2018-06-12T23:47:27+01:00</lastmod>
+    <lastmod>2018-06-30T17:30:50+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -53,14 +58,20 @@
   </url>
   
   <url>
+    <loc>https://fillmem.com/tags/intellij/</loc>
+    <lastmod>2018-06-30T17:30:50+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://fillmem.com/post/</loc>
-    <lastmod>2018-06-12T23:47:27+01:00</lastmod>
+    <lastmod>2018-06-30T17:30:50+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://fillmem.com/categories/quick-tips/</loc>
-    <lastmod>2018-06-12T23:47:27+01:00</lastmod>
+    <lastmod>2018-06-30T17:30:50+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -79,6 +90,12 @@
   <url>
     <loc>https://fillmem.com/tags/tutorial/</loc>
     <lastmod>2017-09-18T10:10:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fillmem.com/tags/vim/</loc>
+    <lastmod>2018-06-30T17:30:50+01:00</lastmod>
     <priority>0</priority>
   </url>
   
