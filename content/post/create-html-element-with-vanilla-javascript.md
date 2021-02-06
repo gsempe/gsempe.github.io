@@ -10,7 +10,7 @@ tags:
   - frontend
   - javascript
 
-title: "Vanilla Javascript: Create a Html Element"
+title: "Vanilla Javascript: Create a HTML Element"
 date: 2021-02-06T17:41:46Z
 draft: false
 ---
