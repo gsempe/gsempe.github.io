@@ -27,7 +27,7 @@ to be the clearer and easiest version to use. This version has also the advantag
 /**
  * creates a HTML element ready to be append.
  * @param {string} [tag=div] HTML tag of the element
- * @param {Object} [props=div] properties to add to the element
+ * @param {Object} [props={}] properties to add to the element
  * @param {HTMLElement[]} [children=[]] Children tot add to the element
  */
 function $e(tag='div',props={},children=[]){
