@@ -1,5 +1,5 @@
 ---
-description: "A tiny helper function to create HTML elements in Javascript"
+description: "A tiny helper function to create HTML elements in JavaScript"
 keywords:
   - javascript
   - js
@@ -10,7 +10,7 @@ tags:
   - frontend
   - javascript
 
-title: "Vanilla Javascript: Create a HTML Element"
+title: "Vanilla JavaScript: Create a HTML Element"
 date: 2021-02-06T17:41:46Z
 draft: false
 ---
@@ -49,7 +49,7 @@ let $t = document.createTextNode.bind(document);
 
 ### Create a form HTML element
 
-**Javascript code**
+**JavaScript code**
 
 ```js
 const form = $e('form', {className:'js-foo-form', action: '/foo', method: 'post'}, [
