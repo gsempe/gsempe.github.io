@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Frontend on Fill the memory</title>
-    <link>https://fillmem.com/tags/frontend/</link>
-    <description>Recent content in Frontend on Fill the memory</description>
+    <title>Javascript on Fill the memory</title>
+    <link>https://fillmem.com/tags/javascript/</link>
+    <description>Recent content in Javascript on Fill the memory</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 06 Feb 2021 17:41:46 +0000</lastBuildDate>
     
-	<atom:link href="https://fillmem.com/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fillmem.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <description>In all the frontend projects I had been involved with, we ended up to need to add HTML elements dynamically to a web page.
 Functions to create HTML elements There are many implementations around the web of this small feature, but I find this one below to be the clearer and easiest version to use. This version has also the advantage to be vanilla js.
 /** * creates a HTML element ready to be append.</description>
-    </item>
-    
-    <item>
-      <title>Build a fast, secured and free static site in less than 3 hours</title>
-      <link>https://fillmem.com/post/fast-secured-and-free-static-site/</link>
-      <pubDate>Thu, 31 Aug 2017 06:09:06 +0100</pubDate>
-      
-      <guid>https://fillmem.com/post/fast-secured-and-free-static-site/</guid>
-      <description>Note: Unless you&amp;rsquo;re a developer or you want to learn how to do sites, my first advice is to avoid to build your own static site. You can get a similar service bundled with other advantages on Medium
-Everything starts with the idea to build a website to host my work. On the road, it became obvious that the first article has to be precisely on how to do it.</description>
     </item>
     
   </channel>
