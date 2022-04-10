@@ -5,10 +5,22 @@
     <link>https://fillmem.com/post/</link>
     <description>Recent content in Posts on Fill the memory</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 06 Feb 2021 17:41:46 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Apr 2022 14:39:36 +0000</lastBuildDate>
     
 	<atom:link href="https://fillmem.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Generate godoc for pkg with generics</title>
+      <link>https://fillmem.com/post/godoc-and-generics-error/</link>
+      <pubDate>Sun, 10 Apr 2022 14:39:36 +0000</pubDate>
+      
+      <guid>https://fillmem.com/post/godoc-and-generics-error/</guid>
+      <description>Go 1.18 is here with the addition of the generics. This is like the biggest change to the language since version 1 and consequently it has many impacts to the tooling around the code.
+One of these impacts is the godoc command deprecation replaced by the command pkgsite.
+When you create your own pkg, and you want to test your godoc locally you have first to build pkgsite
+git clone https://go.</description>
+    </item>
     
     <item>
       <title>Vanilla JavaScript: Create a HTML Element</title>

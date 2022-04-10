@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://fillmem.com/post/godoc-and-generics-error/</loc>
+    <lastmod>2022-04-10T14:39:36+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://fillmem.com/post/create-html-element-with-vanilla-javascript/</loc>
     <lastmod>2021-02-06T17:41:46+00:00</lastmod>
   </url>
@@ -52,13 +57,19 @@
   
   <url>
     <loc>https://fillmem.com/</loc>
-    <lastmod>2021-02-06T17:41:46+00:00</lastmod>
+    <lastmod>2022-04-10T14:39:36+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://fillmem.com/tags/frontend/</loc>
     <lastmod>2021-02-06T17:41:46+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://fillmem.com/tags/go/</loc>
+    <lastmod>2022-04-10T14:39:36+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -76,13 +87,13 @@
   
   <url>
     <loc>https://fillmem.com/post/</loc>
-    <lastmod>2021-02-06T17:41:46+00:00</lastmod>
+    <lastmod>2022-04-10T14:39:36+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://fillmem.com/categories/quick-tips/</loc>
-    <lastmod>2021-02-06T17:41:46+00:00</lastmod>
+    <lastmod>2022-04-10T14:39:36+00:00</lastmod>
     <priority>0</priority>
   </url>
   
